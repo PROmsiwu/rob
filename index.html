@@ -922,7 +922,6 @@
 
 <script>
 // ======== CONFIG ========
-const API_KEY = "AIzaSyDJwbkRAw-2djHtq0W3qngzbnCH4efpCQg";
 let userName = "";
 let scriptCount = 0;
 
@@ -1028,7 +1027,7 @@ async function askClaude(userMsg) {
 - لا تكتب سكربتات تضر بالآخرين أو تخترق ألعاب الآخرين بطريقة ضارة
 - اللاعب الحالي اسمه: ${userName}`;
 
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
+  const response = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -1134,7 +1133,7 @@ async function analyzeScript() {
   result.innerHTML = '<div class="typing-dots" style="justify-content:center;padding:20px;"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
 
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
+    const response = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
